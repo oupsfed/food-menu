@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+{% block title %}
+Последние обновления на сайте
+{% endblock %}
+{% block content %}
+  <div class="container py-5">
+    <h1>Последние обновления на сайте</h1>
+    <p>
+      {{ api }}
+      {{ ip }}
+    </p>
+  </div>
+{% endblock %}
