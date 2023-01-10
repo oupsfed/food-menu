@@ -7,8 +7,147 @@
   <div class="container py-5">
     <h1>Последние обновления на сайте</h1>
     <p>
-      {{ api }}
-      {{ ip }}
+{% load thumbnail %}
+<article>
+  <div class="row">
+    <div class="col-lg-1 col-md-2 col-sm-2 col-2">
+<!--        {% if post.author.profile.avatar %}-->
+<!--            {% thumbnail post.author.profile.avatar "300x300" crop="center" upscale=True as im %}-->
+<!--              <img class="card-img rounded img-fluid" src="{{ im.url }}">-->
+<!--            {% endthumbnail %}-->
+<!--          {% else %}-->
+            {% load static %}
+            <img class="card-img rounded img-fluid" src="{% static 'img/avatar.png' %}"
+            width="150"
+            height="150">
+<!--          {% endif %}-->
+
+    </div>
+    <div class="col-lg-11 col-md-10 col-sm-10 col-10">
+        <div class="mt-0 mb-0 d-flex justify-content-between">
+<!--          {{ post.author.get_full_name }}-->
+            <h4>
+                Борщ со сметаной
+            </h4>
+            <p>
+                01 Января 2022г.
+            </p>
+        </div>
+          <div class="d-flex">
+          <h5 class="m-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+  <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+  <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+</svg>
+  <span class=" badge rounded-pill bg-dark">
+    40 мин.
+  </span>
+          </h5>
+              <h5 class="m-1">
+                  ₽
+  <span class=" badge rounded-pill bg-danger">
+    ~400
+  </span>
+</h5>
+          </div>
+      <p class="mt-0 mb-0">
+<!--        {{ post.created }}-->
+
+      </p>
+<!--      {% if post.group %}-->
+<!--        <p class="mt-0">-->
+<!--          Группа:-->
+<!--          <a href="{% url 'posts:group_list' post.group.slug %}" class="text-dark text-decoration-underline">-->
+<!--            {{ post.group.title }}-->
+<!--          </a>-->
+<!--        </p>-->
+<!--      {% endif %}-->
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1 col-md-2 col-sm-2 col-2">
+        <div class="d-flex flex-wrap mt-0 justify-content-around">
+            <p class="m-0 text-center">
+                Диана Б.
+            </p>
+        </div>
+        <div class="d-flex flex-wrap mt-1 justify-content-around">
+          <button type="button" class="btn btn-sm btn-outline-dark border-0 d-flex theme-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Рейтинг">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" stroke="black" fill="yellow" class="bi bi-star-fill" viewBox="0 0 16 16">
+  <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+</svg>
+              <p class="m-0">1111</p>
+            </button>
+          <button type="button" class="btn btn-sm btn-outline-dark border-0 d-flex theme-btn" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Рецепты">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-journal-text" viewBox="0 0 16 16">
+  <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+  <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2z"/>
+  <path d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1z"/>
+</svg>
+              <p class="m-0">1111</p>
+          </button>
+        </div>
+    </div>
+
+    <div class="col-lg-11 col-md-10 col-sm-10 col-10">
+      <p>
+<!--        {% if post.text|length > 500 %}-->
+<!--          {{ post.text|slice:":500" }}...-->
+<!--        {% else %}-->
+<!--          {{ post.text }}-->
+<!--        {% endif %}-->
+        В Киевской Руси борщ готовили из съедобных листьев борщевика — отсюда название. Позднее стали варить со свёклой, а с XIX века добавлять картошку.
+          Сегодня в каждой семье есть свой рецепт борща. В кастрюлю добавляют и фасоль, и грибы, и копчёности, и даже сельдерей. Мы же научим вас готовить идеальный традиционный борщ.
+          Ингредиенты:
+          Для бульона:
+
+ 1½–2 л воды;
+400–500 г свинины или говядины на кости.
+Для зажарки:
+
+2 небольшие свёклы;
+1 средняя морковь;
+3 средние луковицы;
+4–5 столовых ложек растительного масла;
+щепотка лимонной кислоты, немного столового уксуса или ½ лимона;
+2 столовые ложки томатной пасты.
+Для борща:
+
+300 г свежей белокочанной капусты;
+4 средние картофелины;
+соль — по вкусу;
+1–2 сушёных лавровых листа;
+зелень — по вкусу;
+1 зубчик чеснока — опционально;
+щепотка молотой гвоздики — опционально;
+щепотка молотого чёрного перца — опционально.
+          Приготовление
+Шаг 1. Сварите бульон
+Налейте в кастрюлю холодную воду, выложите мясо и поставьте на средний огонь. Бульон будет вкуснее, если использовать именно мясо на кости.
+      </p>
+      <a class="text-secondary" href="#">Подробнее...</a>
+      <a class="float-end text-dark text-decoration-none" href="#">
+<!--        {{ post.likes.count }}-->
+<!--        {% for like in post.likes.values %}-->
+<!--          {% if request.user.pk == like.user_id %}-->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+            </svg>
+          <div class="d-none">
+<!--          {% endif %}-->
+<!--        {% endfor %}-->
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="red" class="bi bi-heart" viewBox="0 0 16 16">
+            <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+          </svg>
+<!--            {% for like in post.likes.values %}-->
+<!--          {% if request.user.pk == like.user_id %}-->
+          </div>
+<!--          {% endif %}-->
+<!--        {% endfor %}-->
+      </a>
+    </div>
+  </div>
+</article>
     </p>
   </div>
 {% endblock %}
