@@ -1,21 +1,33 @@
 from dadata import Dadata
+from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from .forms import RecipeForm
+from .models import Recipe
+from .utils import paginator
+
+RECIPE_SHOW_LMT = 10
 
 
 def index(request):
-    def get_client_ip(request):
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        return ip
-    token = "a9de885f2cd384d67b27cfbfcd3597555808ccf0"
-    dadata = Dadata(token)
-    result = dadata.iplocate("217.175.5.185")
+    recipe_list = Recipe.objects.all()
+    page_obj = paginator(request, recipe_list, RECIPE_SHOW_LMT)
     context = {
-        'api': result['data']['city_with_type'],
-        'ip': get_client_ip(request)
+        'page_obj': page_obj,
     }
     return render(request, 'recipe/index.html', context)
+
+
+@login_required
+def create_recipe(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            return redirect('recipe:index')
+        return render(request, 'posts/create_recipe.html', {'form': form})
+    form = RecipeForm()
+    return render(request, 'recipe/create_recipe.html', {'form': form})
