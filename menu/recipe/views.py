@@ -14,6 +14,7 @@ def index(request):
     recipe_list = Recipe.objects.all()
     page_obj = paginator(request, recipe_list, RECIPE_SHOW_LMT)
     context = {
+        'recipe_list': recipe_list,
         'page_obj': page_obj,
     }
     return render(request, 'recipe/index.html', context)
