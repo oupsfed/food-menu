@@ -17,3 +17,7 @@ body {
     background-color: gray;
     border-color: black;
 }
+
+.aside-dark {
+    background-color: #333;
+}

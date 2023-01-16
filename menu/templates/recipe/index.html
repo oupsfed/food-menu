@@ -5,7 +5,24 @@
 {% endblock %}
 {% block content %}
   <div class="container py-5">
-    <h1>Последние обновления на сайте</h1>
+    <div class="row">
+      <div class="col-2">
+    <h4 class="text-center">Тэги</h4>
+              <button class="tag-btn btn btn-dark badge rounded-pill">
+                  #Завтрак - 4
+              </button>
+              <button class="tag-btn btn btn-dark badge rounded-pill">
+                  #ПП - 9
+              </button>
+              <button class="tag-btn btn btn-dark badge rounded-pill">
+                  #Обед - 120
+              </button>
+              <button class="tag-btn btn btn-dark badge rounded-pill">
+                  #Вегетарианское меню - 12
+              </button>
+      </div>
+      <div class="col-8">
+    <h4 class="text-center">Последние добавленные рецепты</h4>
 <!--    {% load cache %}
     {% cache 20 index_page request.GET.page %}-->
     {% for recipe in page_obj %}
@@ -14,5 +31,16 @@
     {% endfor %}
 <!--    {% endcache %}-->
     {% include 'recipe/includes/paginator.html' %}
+        </div>
+      <div class="col-2">
+        <h4 class="text-center">Меню</h4>
+        <ul class="list-group list-group-flush ">
+          <a href="#" class="theme-aside list-group-item list-group-item-action">Все рецепты</a>
+          <a href="#" class="theme-aside list-group-item list-group-item-action">Избранное</a>
+          <a href="#" class="theme-aside list-group-item list-group-item-action">Сообщества</a>
+          <a href="#" class="theme-aside list-group-item list-group-item-action">A simple dark list group item</a>
+        </ul>
+      </div>
+      </div>
   </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 
 from core.models import CreatedModel
 
@@ -11,14 +12,10 @@ class Recipe(CreatedModel):
         'Название',
         max_length=200
     )
-    description = models.TextField(
-        'Описание блюда',
-        help_text='Введите описание блюда',
-        blank=True,
-    )
-    cooking_guide = models.TextField(
+    text = RichTextField(
         'Текст рецепта',
-        help_text='Введите текст поста'
+        help_text='Введите описание рецепта',
+        blank=True,
     )
     author = models.ForeignKey(
         User,

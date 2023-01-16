@@ -1,7 +1,7 @@
 from dadata import Dadata
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 from .forms import RecipeForm
 from .models import Recipe
@@ -32,3 +32,15 @@ def create_recipe(request):
         return render(request, 'posts/create_recipe.html', {'form': form})
     form = RecipeForm()
     return render(request, 'recipe/create_recipe.html', {'form': form})
+
+
+def recipe_detail(request, recipe_id):
+    recipe = get_object_or_404(Recipe, pk=recipe_id)
+    # comments = post.comments.all()
+    # form = CommentForm()
+    context = {
+        'recipe': recipe,
+        # 'comments': comments,
+        # 'form': form
+    }
+    return render(request, 'recipe/recipe_detail.html', context)

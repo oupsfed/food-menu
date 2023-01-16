@@ -1,14 +1,16 @@
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 from .models import Recipe
 
 
 class RecipeForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorWidget())
+
     class Meta:
         model = Recipe
         fields = ('title',
-                  'description',
-                  'cooking_guide',
+                  'text',
                   'cooking_time',
                   'image',)
 
