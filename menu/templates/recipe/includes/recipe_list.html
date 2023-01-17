@@ -60,6 +60,21 @@
               </span>
           </h5>
         </div>
+            <div class="mt-0 mb-0 d-flex">
+                {% if recipe|show_recipe_tags %}
+            <p>
+                {% load user_filters %}
+                {% for tag in recipe|show_recipe_tags %}
+                    <button class="btn btn-sm btn-dark badge rounded-pill">
+                      {% load user_filters %}
+                        #{{ tag }}
+                    </button>
+                {% endfor %}
+
+            </p>
+                {% endif %}
+                {{ recipe_tag_list.recipe }}
+        </div>
         <p class="mt-0 mb-0">
             {{ recipe.created }}
         </p>

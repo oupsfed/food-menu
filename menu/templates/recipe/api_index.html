@@ -16,13 +16,6 @@
     <h4 class="text-center">Последние добавленные рецепты</h4>
         <div class="all-content">
         </div>
-<!--    {% load cache %}
-    {% cache 20 index_page request.GET.page %}-->
-    {% for recipe in page_obj %}
-    {% include 'recipe/includes/recipe_list.html' %}
-    {% if not forloop.last %}<hr>{% endif %}
-    {% endfor %}
-<!--    {% endcache %}-->
     {% include 'recipe/includes/paginator.html' %}
         </div>
       <div class="col-2">

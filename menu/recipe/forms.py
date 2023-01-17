@@ -12,6 +12,7 @@ class RecipeForm(forms.ModelForm):
         fields = ('title',
                   'text',
                   'cooking_time',
+                  'tag',
                   'image',)
 
     def clean_text(self):
